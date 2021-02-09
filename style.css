@@ -28,7 +28,7 @@ input,button{
     margin: 0%;
 }
 input[type="text"]{
-    width: 600px;
+    width: 700px;
 }
 .search-btn{
     cursor: pointer;
