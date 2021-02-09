@@ -85,18 +85,3 @@ function addMealToDOM(meal){
 
 
 submit.addEventListener('submit',searchMeal)
-mealsEl.addEventListener('click',e =>{
-    const mealInfo = e.path.find(item=>{
-        // console.log(item);
-        if(item.classList){
-            return item.classList.contains('meal-info');
-        }else{
-            return false;
-        }
-    });
-   if(mealInfo){
-       const mealID = mealInfo.getAttribute('data-mealid');
-    // console.log(mealID);
-       getMealById(mealID)
-   } 
-});
