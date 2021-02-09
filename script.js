@@ -1,6 +1,5 @@
 const search = document.getElementById('search');
 const submit = document.getElementById('submit');
-const random = document.getElementById('random');
 const resultHeading = document.getElementById('result-heading');
 const mealsEl = document.getElementById('meals');
 const single_mealEl = document.getElementById('single-meal');
@@ -22,7 +21,7 @@ function searchMeal(e){
             .then(res => res.json())
             .then(data =>{
                 //console.log(data);
-                resultHeading.innerHTML = `<h3>Search result for '${term}': Please scroll down to see the details</h3>`;
+                resultHeading.innerHTML = `<h3>Search result for '${term}': Please select and scroll down to see the details</h3>`;
 
                 if(data.meals === null){
                     resultHeading.innerHTML = `<p>There is no search result for '${term}'</p>`;
@@ -64,25 +63,24 @@ function addMealToDOM(meal){
 
     for(let i=1 ; i<=20 ; i++){
         if(meal[`strIngredient${i}`]){
-            ingredients.push(`${meal[`strIngredient${i}`]}-${meal[`strMeasure${i}`]}`)
+            ingredients.push(`${meal[`strIngredient${i}`]}`)
         }else{
             break;
         }
     }
     single_mealEl.innerHTML = `
         <div class="single-meal">
-        <h1>${meal.strMeal}</h1>
-        <img src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
+        <h1 class="meal-result">${meal.strMeal}</h1>
+        <img class="meal-image" src="${meal.strMealThumb}" alt="${meal.strMeal}"/>
         <div class="main">
             <h2>ingredients</h2>
             <ul>
-                ${ingredients.map(ing => `<li>${ing}</li>`).join('')}
+                ${ingredients.map(ing => `<li class="li">${ing}</li>`).join('')}
             </ul>
         </div>
         </div>
     `;
 }
-
 
 submit.addEventListener('submit',searchMeal)
 mealsEl.addEventListener('click',e =>{
