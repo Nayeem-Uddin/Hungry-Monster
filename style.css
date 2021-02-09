@@ -78,6 +78,9 @@ input[type="text"]{
 }
 .li{
     list-style: none;
+    border:1px #fff solid;
+    border-radius: 5px;
+    padding: 10px;
 }
 .meal-result{
    margin-top: 40px;
